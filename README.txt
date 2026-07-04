@@ -1,2 +1,2 @@
-Tree House V6
-Upload all files and the assets folder to GitHub.
+Tree House V6 with generated concept visuals - FIXED ROOT ZIP
+Upload the contents of this ZIP to GitHub. Make sure the assets folder is uploaded together.
