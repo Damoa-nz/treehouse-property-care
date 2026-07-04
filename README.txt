@@ -1,3 +1,2 @@
-Tree House website with generated concept visuals.
+Tree House V6
 Upload all files and the assets folder to GitHub.
-Generated concept images should be replaced with real work photos over time.
