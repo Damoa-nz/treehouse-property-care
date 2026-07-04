@@ -1,2 +1,5 @@
-// Tree House V5 v0.1
-console.log("Tree House Property Care v0.1 loaded");
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
