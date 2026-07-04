@@ -1,2 +1,2 @@
-Tree House V5 v0.3
-Upload all files and the assets folder to GitHub.
+Tree House V5 v0.4
+Upload all files and assets folder to GitHub.
