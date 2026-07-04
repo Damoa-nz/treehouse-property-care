@@ -1,1 +1,2 @@
-Tree House mockup style homepage coding file. Upload all files and assets folder to GitHub.
+Tree House Property Care Final
+Upload all files and the assets folder to GitHub.

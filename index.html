@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tree House Property Care | Auckland Property Care</title>
-  <meta name="description" content="Tree House Property Care provides cleaning, maintenance and outdoor care across Auckland." />
+
+  <title>Tree House Property Care | Auckland Cleaning & Property Care</title>
+  <meta name="description" content="Tree House Property Care provides residential cleaning, commercial cleaning, property care and outdoor care across Auckland." />
+  <meta property="og:title" content="Tree House Property Care" />
+  <meta property="og:description" content="We care for the places where life happens. Auckland cleaning, maintenance and outdoor care." />
+  <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<header class="topbar">
+<header class="site-header">
   <a class="brand" href="#top">
     <img src="assets/brand-reference.png" alt="Tree House Property Care logo" onerror="this.style.display='none'">
     <span><strong>TREE HOUSE</strong><small>PROPERTY CARE</small></span>
   </a>
+
   <nav>
     <a href="#top">Home</a>
     <a href="#services">Services</a>
@@ -23,77 +30,195 @@
     <a href="#reviews">Reviews</a>
     <a href="#quote">Contact</a>
   </nav>
-  <a class="quote-btn" href="#quote">Free Quote</a>
+
+  <a class="header-quote" href="#quote">Free Quote <span>→</span></a>
 </header>
 
 <main id="top">
   <section class="hero">
     <div class="hero-copy">
       <p class="eyebrow">Auckland Property Care</p>
-      <h1>We clean it like it's our own home.</h1>
-      <p class="lead">Reliable cleaning, maintenance and outdoor care for homes and businesses across Auckland.</p>
-      <div class="hero-features">
-        <div><span class="line-icon">♧</span><strong>Eco-friendly products</strong><small>Safe for families and pets</small></div>
-        <div><span class="line-icon">✦</span><strong>Detail-focused care</strong><small>We do not cut corners</small></div>
-        <div><span class="line-icon">✓</span><strong>One-off or regular</strong><small>Flexible service options</small></div>
+      <h1>We care for the places where life happens.</h1>
+      <p class="lead">Professional cleaning and property care for homes and businesses across Auckland.</p>
+
+      <div class="hero-actions">
+        <a href="#quote" class="btn primary">Request a Free Quote <span>→</span></a>
       </div>
-      <a href="#quote" class="primary-cta">Request a Free Quote</a>
+
+      <div class="promise-row">
+        <div>
+          <span class="icon leaf"></span>
+          <strong>Eco-friendly products</strong>
+          <small>Family and pet conscious</small>
+        </div>
+        <div>
+          <span class="icon sparkle"></span>
+          <strong>Detail-focused service</strong>
+          <small>We do not cut corners</small>
+        </div>
+        <div>
+          <span class="icon shield"></span>
+          <strong>Regular or one-off</strong>
+          <small>Flexible care options</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image" aria-label="Bright clean living room"></div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="section-title center">
+      <p class="eyebrow">Our Services</p>
+      <h2>Complete care for your property.</h2>
+    </div>
+
+    <div class="service-grid">
+      <article>
+        <div class="service-icon home"></div>
+        <div>
+          <h3>Residential Cleaning</h3>
+          <p>Regular or one-off cleaning for a fresh, healthy home.</p>
+          <a href="#quote">Learn more →</a>
+        </div>
+      </article>
+      <article>
+        <div class="service-icon building"></div>
+        <div>
+          <h3>Commercial Cleaning</h3>
+          <p>Offices, clinics, shops and customer-facing spaces.</p>
+          <a href="#quote">Learn more →</a>
+        </div>
+      </article>
+      <article>
+        <div class="service-icon tools"></div>
+        <div>
+          <h3>Property Care</h3>
+          <p>Maintenance and repairs to keep your property in good shape.</p>
+          <a href="#quote">Learn more →</a>
+        </div>
+      </article>
+      <article>
+        <div class="service-icon outdoor"></div>
+        <div>
+          <h3>Outdoor Care</h3>
+          <p>Lawn, deck, fence and exterior cleaning services.</p>
+          <a href="#quote">Learn more →</a>
+        </div>
+      </article>
     </div>
   </section>
 
-  <section class="three-column">
-    <div class="before-after">
-      <h2>Before & After</h2>
-      <div class="mini-line"></div>
+  <section id="projects" class="showcase">
+    <div class="showcase-left">
+      <div class="section-heading">
+        <p class="eyebrow">Before & After</p>
+        <h2>Real results you can see.</h2>
+      </div>
+
       <div class="ba-grid">
-        <div class="ba before stove"><span>BEFORE</span></div>
-        <div class="ba after stove"><span>AFTER</span></div>
-        <div class="ba before sink"><span>BEFORE</span></div>
-        <div class="ba after sink"><span>AFTER</span></div>
-        <div class="ba before deck"><span>BEFORE</span></div>
-        <div class="ba after deck"><span>AFTER</span></div>
+        <div class="ba-card">
+          <div class="ba before stove"><span>Before</span></div>
+          <div class="ba after stove"><span>After</span></div>
+          <strong>Kitchen</strong>
+        </div>
+        <div class="ba-card">
+          <div class="ba before basin"><span>Before</span></div>
+          <div class="ba after basin"><span>After</span></div>
+          <strong>Bathroom</strong>
+        </div>
+        <div class="ba-card">
+          <div class="ba before deck"><span>Before</span></div>
+          <div class="ba after deck"><span>After</span></div>
+          <strong>Deck</strong>
+        </div>
       </div>
-      <a class="text-link" href="#projects">View more before & after →</a>
     </div>
 
-    <div id="projects" class="projects">
-      <h2>Project Examples</h2>
-      <div class="mini-line"></div>
-      <article><div class="project-img home"></div><div><h3>Residential Care</h3><p>Regular cleaning and home presentation.</p></div></article>
-      <article><div class="project-img clinic"></div><div><h3>Commercial Cleaning</h3><p>Clinics, offices and retail spaces.</p></div></article>
-      <article><div class="project-img lawn"></div><div><h3>Outdoor Care</h3><p>Lawn, garden and exterior care.</p></div></article>
-      <a class="text-link" href="#services">View services →</a>
-    </div>
-
-    <div id="reviews" class="review-guide">
-      <h2>Google Review Guide</h2>
-      <div class="mini-line"></div>
-      <div class="timeline">
-        <div><b>01</b><p>Search “Tree House Property Care” on Google.</p></div>
-        <div><b>02</b><p>Click “Write a review”.</p></div>
-        <div><b>03</b><p>Select stars and write a short review.</p></div>
-        <div><b>04</b><p>Submit. Thank you!</p></div>
+    <div class="showcase-right">
+      <div class="section-heading">
+        <p class="eyebrow">Featured Projects</p>
+        <h2>Spaces we’re proud to care for.</h2>
       </div>
-      <a class="review-btn" href="#">Write a Review</a>
+
+      <div class="project-list">
+        <article>
+          <div class="project-img home"></div>
+          <div>
+            <h3>Modern Home</h3>
+            <p>Albany</p>
+          </div>
+        </article>
+        <article>
+          <div class="project-img clinic"></div>
+          <div>
+            <h3>Medical Clinic</h3>
+            <p>Henderson</p>
+          </div>
+        </article>
+        <article>
+          <div class="project-img retail"></div>
+          <div>
+            <h3>Retail Store</h3>
+            <p>Takapuna</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section id="services" class="trust-row">
-    <div><span>🛡</span><strong>Trusted Team</strong><p>Professional and careful service.</p></div>
-    <div><span>⏱</span><strong>Reliable Timing</strong><p>Clear schedule and communication.</p></div>
-    <div><span>🌿</span><strong>Eco-friendly</strong><p>Products suitable for family spaces.</p></div>
-    <div><span>🎧</span><strong>Customer First</strong><p>Service built around your needs.</p></div>
+  <section id="reviews" class="reviews">
+    <div class="review-title">
+      <p class="eyebrow">Google Reviews</p>
+      <h2>What our clients say.</h2>
+    </div>
+
+    <div class="review-grid">
+      <article>
+        <div class="stars">★★★★★</div>
+        <p>“Fantastic attention to detail. Our home has never felt so clean.”</p>
+        <strong>— Sarah K.</strong>
+        <span class="google">G</span>
+      </article>
+      <article>
+        <div class="stars">★★★★★</div>
+        <p>“Reliable, friendly and always exceed our expectations.”</p>
+        <strong>— James L.</strong>
+        <span class="google">G</span>
+      </article>
+      <article>
+        <div class="stars">★★★★★</div>
+        <p>“They treat our clinic like their own. Highly recommended.”</p>
+        <strong>— Dr. M. Lee</strong>
+        <span class="google">G</span>
+      </article>
+      <article>
+        <div class="stars">★★★★★</div>
+        <p>“Great communication and beautiful results every time.”</p>
+        <strong>— Olivia R.</strong>
+        <span class="google">G</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div><span class="service-icon shield-small"></span><strong>Trusted Team</strong><p>Careful, reliable and respectful.</p></div>
+    <div><span class="service-icon clock"></span><strong>On-time Service</strong><p>Clear scheduling and updates.</p></div>
+    <div><span class="service-icon leaf-small"></span><strong>Eco-friendly</strong><p>Products suitable for family spaces.</p></div>
+    <div><span class="service-icon headset"></span><strong>Customer First</strong><p>Your satisfaction comes first.</p></div>
   </section>
 
   <section id="quote" class="quote-section">
     <div>
       <p class="eyebrow light">Free Quote</p>
-      <h2>Tell us about your property.</h2>
-      <p>Send a few details and we will reply with the next step.</p>
+      <h2>Ready for a cleaner, more comfortable space?</h2>
+      <p>Get your free, no-obligation quote today.</p>
     </div>
+
     <form action="https://formsubmit.co/treehousenz9@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New Quote Request - Tree House Property Care">
       <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
       <input name="Name" placeholder="Name" required>
       <input name="Phone" placeholder="Phone" required>
       <select name="Service" required>
@@ -103,18 +228,30 @@
         <option>Move-in / Move-out Cleaning</option>
         <option>Property Maintenance</option>
         <option>Lawn & Garden Care</option>
+        <option>Multiple Services</option>
       </select>
       <input name="Address" placeholder="Property address / suburb" required>
       <textarea name="Details" rows="4" placeholder="Tell us what needs to be done"></textarea>
-      <button type="submit">Send Quote Request</button>
+      <button type="submit">Request a Free Quote <span>→</span></button>
     </form>
+
+    <div class="contact-info">
+      <a href="tel:+64220501004">022 050 1004</a>
+      <a href="mailto:treehousenz9@gmail.com">treehousenz9@gmail.com</a>
+      <span>Auckland, New Zealand</span>
+    </div>
   </section>
 </main>
 
 <footer>
-  <strong>Tree House Property Care</strong>
-  <span>Cleaning · Maintenance · Outdoor Care · Auckland Wide</span>
-  <a href="mailto:treehousenz9@gmail.com">treehousenz9@gmail.com</a>
+  <div>
+    <strong>Tree House Property Care</strong>
+    <span>Cleaning · Maintenance · Outdoor Care</span>
+  </div>
+  <div>
+    <span>Serving Auckland Wide</span>
+    <span>North Shore · Central · East · West · South Auckland</span>
+  </div>
 </footer>
 </body>
 </html>
