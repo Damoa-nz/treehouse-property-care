@@ -1,1 +1,1 @@
-Tree House Final Property Care. Upload all files and the assets folder to GitHub.
+Tree House Final Polish. Upload all files and the assets folder to GitHub.
