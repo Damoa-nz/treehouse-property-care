@@ -1,2 +1,1 @@
-// Tree House Property Care Final
-console.log("Tree House Final loaded");
+console.log("Tree House final property care loaded");
