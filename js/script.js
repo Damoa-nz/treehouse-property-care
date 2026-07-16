@@ -70,11 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
           headers: { Accept: "application/json" },
         });
         if (!response.ok) throw new Error("Request failed");
-        quoteForm.innerHTML = '<p class="form-success">Thanks — your request is in. Jace will reply within one business day.</p>';
+        quoteForm.innerHTML = '<p class="form-success">Thanks — your request is in. We\'ll reply within one business day.</p>';
       } catch (err) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalLabel;
-        alert("Something went wrong sending your request. Please call or text Jace directly — details are just below.");
+        alert("Something went wrong sending your request. Please call or text us directly — details are just below.");
       }
     });
   });

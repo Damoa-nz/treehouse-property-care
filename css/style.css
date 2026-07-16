@@ -63,7 +63,8 @@ body.nav-open .brand strong,body.nav-open .brand small{color:var(--cream)}
 
 .header-actions{display:flex;align-items:center;gap:10px}
 .header-quote,.btn,form button{background:var(--green);color:#fff;border-radius:6px;padding:14px 24px;display:inline-flex;align-items:center;gap:12px;font-weight:900;border:0;cursor:pointer;font-size:13px}
-.header-call,.header-text{border:1px solid var(--green);color:var(--green);border-radius:6px;padding:12px 16px;font-size:12px;font-weight:900;line-height:1}
+.header-call,.header-text{width:42px;height:42px;border-radius:50%;border:1px solid var(--green);color:var(--green);display:grid;place-items:center;flex:none}
+.header-call svg,.header-text svg{width:18px;height:18px}
 .header-text{background:var(--green);color:#fff}
 
 .menu-toggle{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:44px;height:44px;background:transparent;border:0;padding:0;cursor:pointer;flex:none}
@@ -86,7 +87,7 @@ h3{font-size:23px;margin:0 0 8px;line-height:1.24}
 /* ---------- Hero ---------- */
 .hero{min-height:720px;position:relative;display:grid;grid-template-columns:48% 52%;background:var(--paper);overflow:hidden}
 .hero-copy{padding:180px 0 56px 4.5vw;align-self:center}
-.hero-photo{min-height:720px;background:linear-gradient(90deg,rgba(255,253,248,.82),rgba(255,253,248,.12) 36%,rgba(255,253,248,0) 62%),url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2600&q=92') center/cover}
+.hero-photo{min-height:720px;background:linear-gradient(90deg,rgba(255,253,248,.82),rgba(255,253,248,.12) 36%,rgba(255,253,248,0) 62%),url('assets/team-brand-photo.jpg') center 30%/cover}
 .quick-card{position:absolute;right:4.5vw;bottom:38px;width:min(440px,33vw);background:rgba(255,253,248,.92);border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:var(--shadow)}
 .quick-card h2{font-size:30px;margin-bottom:14px}
 .quick-options{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;border-bottom:1px solid var(--line);padding-bottom:14px}
@@ -122,9 +123,9 @@ h3{font-size:23px;margin:0 0 8px;line-height:1.24}
 .service-grid article,.detail-card,.review-item{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 14px 42px rgba(11,45,32,.06)}
 .service-img{height:190px;background-size:cover;background-position:center}
 .cleaning-img{background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=90')}
-.outdoor-img{background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=900&q=90')}
+.outdoor-img{background-image:url('assets/outdoor-brand-photo.jpg')}
 .maintenance-img{background-image:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=90')}
-.commercial-img{background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=90')}
+.commercial-img{background-image:url('assets/commercial-brand-photo.jpg')}
 .service-body{padding:0 24px 28px}
 .service-body .ico{margin-top:-23px;margin-bottom:14px}
 .service-body p,.detail-card p{font-size:14px;line-height:1.7;color:var(--muted);margin-bottom:17px}
@@ -152,7 +153,7 @@ h3{font-size:23px;margin:0 0 8px;line-height:1.24}
 
 /* ---------- About ---------- */
 .about-section{display:grid;grid-template-columns:1fr .9fr .9fr;background:var(--cream)}
-.about-photo{min-height:330px;background:url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=90') center/cover}
+.about-photo{min-height:330px;background:url('assets/team-brand-photo.jpg') center 25%/cover}
 .about-copy,.about-values{padding:48px}
 .about-copy p,.about-values p{color:var(--muted);line-height:1.7}
 .about-values{display:grid;gap:22px;border-left:1px solid var(--line)}
