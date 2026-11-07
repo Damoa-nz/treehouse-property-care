@@ -1,134 +1,70 @@
-# Tree House Cleaning — Staff Platform (Phase 1)
+# Tree House Property Care — 웹사이트
 
-A real Next.js + Supabase application: a public marketing/quote page and
-an authenticated, role-gated staff portal at `/staff`. This is Phase 1 of
-a 4-phase build — see **What's real vs. what's still a stub** below before
-you show this to anyone.
+프리미엄 뉴질랜드 부동산 관리 회사 홈페이지. 순수 HTML/CSS/JS로, 빌드 과정 없이 바로 배포 가능합니다.
 
-## Why Next.js + Supabase
-
-Every tool you've had built before this (the website, the quote
-calculator, the workforce app) was a single HTML file you could open
-straight in a browser — no install, nothing to host. This platform can't
-be that, because the brief needs things a static file genuinely cannot
-do safely: a login that actually blocks the wrong role from seeing data
-even if they guess a URL or call the API directly, and more than one
-person's phone updating the same database at once (time clock, chat).
-That requires a real server and a real database. Supabase gives you that
-database (Postgres), login system, file storage and realtime updates
-without you having to run a server yourself; Next.js is the app that
-talks to it. You'll need to create one free Supabase project and click
-"Deploy" on Vercel — a few steps, done once, documented below.
-
-## What's real vs. what's still a stub (read this first)
-
-**Fully real and working, once you connect your own Supabase project:**
-- Database schema for every module in the brief (properties, cleaning
-  instructions + versions + photos, jobs, recurring schedules, time
-  clock, chat, complaints, notifications, announcements, quote requests)
-- Row-Level Security on every table — a STAFF account cannot read or
-  write outside its own role's rules even by calling the Supabase API
-  directly, not just through this app's screens
-- Real authentication (Supabase Auth) with a route guard in middleware
-  that blocks `/staff/**` for anyone not signed in
-- The Clock In / Pause / Resume / Clock Out state machine — implemented
-  as a single atomic Postgres function (`staff_clock_action`,
-  `supabase/migrations/0004_time_clock_function.sql`) so the rules hold
-  even under a double-click or a direct API call. Pause time is
-  tracked and excluded from worked time automatically.
-- The public quote-request form — posts to a real API route that
-  inserts into the `quote_requests` table (service-role key, never
-  exposed to the browser)
-- Admin-only pages are gated **server-side**, not just hidden in the nav
-
-**Deliberately a stub right now — reads real data, but no "write" UI yet:**
-Jobs, Properties, Chat and Complaints pages. Each already queries its
-real table through the real RLS rules for whoever is logged in, so you
-can see the access model working, but there's no "create a job" or
-"send a message" button yet — that's Phase 2/3. The page itself says so.
-
-**Not started yet (Phases 2–4):**
-- Recurring-schedule generation, job detail pages
-- Cleaning-instruction editor with photo upload + version history
-- Live chat (Supabase Realtime), complaint workflow, notifications
-  (in-app/push/email), announcements composer
-- Employee create/edit, CSV exports, reporting dashboard
-- Porting the pricing logic from the existing quote calculator into
-  this quote-request flow (so a submitted request can be priced here
-  instead of only triaged)
-- Translating the public site (currently English-only, same scope
-  decision made on the static site's service pages)
-- PWA/offline support, push notifications
-
-Nothing here claims to work that doesn't. If a button isn't built, it
-isn't on the screen.
-
-## Folding in the existing systems
-
-Per your direction, the workforce-management app (scheduling, weekly
-settlement, invoicing) and the quote calculator (Workload/Pricing
-Engine) get folded into this platform rather than kept as separate
-tools. This phase lays the schema groundwork for that (`jobs`,
-`recurring_schedules`, `quote_requests`) but the actual porting —
-rebuilding the settlement/payslip view and wiring the real pricing
-engine into the quote flow — happens in Phase 4 and the quote-flow
-follow-up above, once I've gone through those two tools' logic in
-detail rather than guessing at it from memory.
-
-## One-time setup
-
-1. **Create a Supabase project** — supabase.com → New project (free
-   tier is enough to start). Note the project URL and two keys from
-   Settings → API: the `anon` `public` key and the `service_role`
-   key (keep the service-role key secret — never put it in code that
-   ships to the browser).
-
-2. **Run the migrations** — Supabase Dashboard → SQL Editor → paste
-   and run each file in `supabase/migrations/` **in order**
-   (`0001_schema.sql`, `0002_rls.sql`, `0003_storage.sql`,
-   `0004_time_clock_function.sql`). (If you prefer the CLI:
-   `supabase link` then `supabase db push`.)
-
-3. **Create your own account as the first ADMIN** — Dashboard →
-   Authentication → Users → Add user (enter your email + a password).
-   Signing up happens only this way for now — there's no public
-   "create account" page, by design, so random visitors can't make
-   themselves a staff account. Then in the SQL Editor:
-   ```sql
-   update public.profiles set role = 'ADMIN' where full_name = 'you@example.com';
-   ```
-   (every new user gets `full_name` defaulted to their email until you
-   set a real name — update that too while you're there)
-
-4. **Environment variables** — copy `.env.example` to `.env.local` and
-   fill in the three values from step 1.
-
-5. **Run it locally**: `npm install && npm run dev`, then open
-   `http://localhost:3000` (public site) and
-   `http://localhost:3000/staff/login` (staff portal, sign in with the
-   account from step 3).
-
-6. **Deploy** — push this repo to GitHub, then import it on Vercel.
-   Add the same three environment variables in Vercel's project
-   settings before the first deploy.
-
-## Project layout
+## 파일 구조
 
 ```
-src/app/                  public site (/) + API routes
-src/app/staff/login/      sign-in (outside the auth-gated layout)
-src/app/staff/(protected)/  everything that requires sign-in
-src/components/           shared UI
-src/lib/supabase/         browser / server / admin Supabase clients
-src/middleware.ts         route guard for /staff/**
-supabase/migrations/      the entire database, in order
+index.html                  홈페이지
+cleaning.html                청소 서비스 상세 페이지
+outdoor-care.html            아웃도어 관리 서비스 상세 페이지
+property-maintenance.html    부동산 유지보수 서비스 상세 페이지
+commercial.html               상업 서비스 상세 페이지
+css/
+  style.css                   전체 페이지 공용 스타일시트
+js/
+  main.js                      다국어 전환 + 모바일 메뉴 (전 페이지 공용)
+sitemap.xml                   검색엔진용 사이트맵
+robots.txt                    검색엔진 크롤링 허용 설정
+assets/
+  logo-icon.png                파비콘 · 소셜 공유용
+  logo-header.png              헤더 · 푸터 로고
 ```
 
-## Design system
+**5개 페이지가 CSS/JS를 공유하는 구조**입니다. 디자인이나 언어 전환 로직을 바꾸고 싶으면 `css/style.css` 또는 `js/main.js` 하나만 고치면 5개 페이지에 전부 반영됩니다.
 
-Carried over from the static site so both feel like one product:
-Cormorant Garamond (headings) + Manrope (body), Forest `#1C2C20`,
-Sage `#7C8C74`, Warm White `#F8F6F1`, Beige `#E8E1D5`. No personal
-names appear anywhere in the public site or its footer, per your
-standing instruction — the same rule extends to the staff portal:
-branch/role labels only, no individual names surfaced to the public.
+## 이번 작업으로 완료된 것
+
+- ✅ **4개 서비스 상세 페이지 신규 제작** — 각 페이지마다 고유한 소개글, 작업 범위, 카테고리, 선택 이유, 적합한 부동산 유형, FAQ 3개, 최종 CTA로 구성. 홈페이지의 "Learn More"가 이제 각 페이지로 실제 연결됩니다 (이전엔 전부 문의 폼으로만 연결됐었습니다).
+- ✅ **CSS/JS 외부 파일 분리** — 페이지가 5개로 늘어난 시점에 인라인 방식은 유지보수가 어려워, `css/style.css`와 `js/main.js`로 분리했습니다.
+- ✅ **Why Tree House 섹션 신규 추가** (홈페이지, How It Works 다음)
+- ✅ **히어로 보조 CTA "Explore Our Services" 추가**
+- ✅ **견적 폼 스팸 방지용 허니팟 필드 추가**
+- ✅ 헤더 드롭다운·모바일 메뉴·푸터의 서비스 링크를 전부 실제 페이지로 연결
+- ✅ sitemap.xml을 5개 페이지 전부 포함하도록 갱신
+
+## 다국어 지원 (EN / 한국어 / 中文) — 범위 안내
+
+헤더의 언어 전환 버튼은 **5개 페이지 모두에 있고, 공용 네비게이션·푸터·CTA 문구는 전부 3개 국어로 번역되어 있습니다.**
+
+다만 **4개 서비스 상세 페이지의 본문(히어로 문구, 소개글, 작업 범위, FAQ 등)은 이번 단계에서는 영어로만 작성**했습니다. 번역 품질을 지키려면 한 번에 두 언어씩 300개 넘는 문장을 새로 작성해야 해서, 페이지 구조와 콘텐츠를 먼저 확정한 뒤 번역을 얹는 순서가 더 안전하다고 판단했습니다. 내용에 변경 없이 확정되면, 이어서 번역을 채워드릴 수 있습니다.
+
+## 배포 전 반드시 해야 할 것 — 견적 폼 활성화
+
+견적 폼은 [FormSubmit.co](https://formsubmit.co)를 통해 `treehousenz9@gmail.com`으로 전송되도록 연결되어 있습니다 (폼은 `index.html`에만 있고, 서비스 페이지의 "Get a Free Quote"는 이 폼이 있는 `index.html#contact`로 이동합니다).
+
+1. 사이트를 배포한 뒤, 견적 폼을 한 번 실제로 제출해보세요.
+2. `treehousenz9@gmail.com`으로 오는 FormSubmit 확인 이메일의 활성화 링크를 클릭하세요.
+3. 이후 제출부터는 페이지 이동 없이 "Thank you" 메시지가 뜨고 이메일로 문의 내용이 도착합니다.
+
+## GitHub Pages로 배포하기
+
+1. 모든 `.html` 파일, `css/`, `js/`, `assets/`, `sitemap.xml`, `robots.txt`를 저장소에 업로드합니다 (폴더 구조를 그대로 유지해야 CSS/JS 경로가 맞습니다).
+2. 저장소 **Settings → Pages**에서 Branch를 `main`, 폴더는 `/ (root)`로 설정합니다.
+3. 배포되면 `https://[사용자명].github.io/[저장소명]/` 주소로 접속됩니다.
+4. **커스텀 도메인을 쓰신다면** 5개 HTML 파일 안의 `<link rel="canonical">`, `<meta property="og:...">`와 `sitemap.xml`, `robots.txt`의 `treehouse-property-care.vercel.app`를 실제 도메인으로 바꿔주세요.
+
+## 배포 후 체크리스트
+
+- [ ] 견적 폼 FormSubmit 활성화 (위 안내 참고)
+- [ ] 각 페이지의 canonical/OG 도메인 주소를 실제 도메인으로 교체
+- [ ] 서비스 페이지 히어로 이미지 5장은 전부 Unsplash 무료 라이선스 임시 이미지입니다 (`cleaning.html`, `outdoor-care.html`, `property-maintenance.html`, `commercial.html`, `index.html` 각 히어로/서비스 카드). 실제 작업 사진으로 교체하세요.
+- [ ] Projects 섹션의 "Example Project" 배지 — 실제 완료 사진으로 교체되면 지워주세요.
+- [ ] 서비스 페이지 FAQ 답변 중 "청소 도구 지참 여부", "긴급 수리 대응", "영업시간 외 작업" 등은 일반적인 업계 관행을 기준으로 작성한 것이라, 실제 운영 방침과 다르면 각 파일에서 직접 수정해주세요.
+- [ ] 전화(오클랜드 022 408 9301 / 9302, 시드니 +61 404 110 569)·이메일이 실제 응대 가능한지 확인
+
+## 디자인 시스템
+
+- **컬러**: Deep Forest Green `#1C2C20` · Sage `#7C8C74` · Warm White `#F8F6F1` · Soft Beige `#E8E1D5` · Charcoal `#252525`
+- **폰트**: 헤드라인 Cormorant Garamond · 본문 Manrope (한국어/중국어는 Noto Sans KR/SC로 자동 대체)
+- 모든 값은 `css/style.css` 상단 `:root` 변수로 모아뒀습니다.
