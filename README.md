@@ -10,23 +10,20 @@ cleaning.html                청소 서비스 상세 페이지
 outdoor-care.html            아웃도어 관리 서비스 상세 페이지
 property-maintenance.html    부동산 유지보수 서비스 상세 페이지
 commercial.html               상업 서비스 상세 페이지
-css/
-  style.css                   전체 페이지 공용 스타일시트
-js/
-  main.js                      다국어 전환 + 모바일 메뉴 (전 페이지 공용)
+style.css                    전체 페이지 공용 스타일시트
+main.js                       다국어 전환 + 모바일 메뉴 (전 페이지 공용)
 sitemap.xml                   검색엔진용 사이트맵
 robots.txt                    검색엔진 크롤링 허용 설정
-assets/
-  logo-icon.png                파비콘 · 소셜 공유용
-  logo-header.png              헤더 · 푸터 로고
+logo-icon.png                 파비콘 · 소셜 공유용
+logo-header.png               헤더 · 푸터 로고
 ```
 
-**5개 페이지가 CSS/JS를 공유하는 구조**입니다. 디자인이나 언어 전환 로직을 바꾸고 싶으면 `css/style.css` 또는 `js/main.js` 하나만 고치면 5개 페이지에 전부 반영됩니다.
+**5개 페이지가 CSS/JS를 공유하는 구조**입니다. 디자인이나 언어 전환 로직을 바꾸고 싶으면 `style.css` 또는 `main.js` 하나만 고치면 5개 페이지에 전부 반영됩니다.
 
 ## 이번 작업으로 완료된 것
 
 - ✅ **4개 서비스 상세 페이지 신규 제작** — 각 페이지마다 고유한 소개글, 작업 범위, 카테고리, 선택 이유, 적합한 부동산 유형, FAQ 3개, 최종 CTA로 구성. 홈페이지의 "Learn More"가 이제 각 페이지로 실제 연결됩니다 (이전엔 전부 문의 폼으로만 연결됐었습니다).
-- ✅ **CSS/JS 외부 파일 분리** — 페이지가 5개로 늘어난 시점에 인라인 방식은 유지보수가 어려워, `css/style.css`와 `js/main.js`로 분리했습니다.
+- ✅ **CSS/JS 외부 파일 분리** — 페이지가 5개로 늘어난 시점에 인라인 방식은 유지보수가 어려워, `style.css`와 `main.js`로 분리했습니다.
 - ✅ **Why Tree House 섹션 신규 추가** (홈페이지, How It Works 다음)
 - ✅ **히어로 보조 CTA "Explore Our Services" 추가**
 - ✅ **견적 폼 스팸 방지용 허니팟 필드 추가**
@@ -49,7 +46,7 @@ assets/
 
 ## GitHub Pages로 배포하기
 
-1. 모든 `.html` 파일, `css/`, `js/`, `assets/`, `sitemap.xml`, `robots.txt`를 저장소에 업로드합니다 (폴더 구조를 그대로 유지해야 CSS/JS 경로가 맞습니다).
+1. 모든 `.html` 파일, `sitemap.xml`, `robots.txt`를 저장소에 업로드합니다 (폴더 없이 파일만 있는 구조라 전체 선택 후 끌어다 놓으면 됩니다).
 2. 저장소 **Settings → Pages**에서 Branch를 `main`, 폴더는 `/ (root)`로 설정합니다.
 3. 배포되면 `https://[사용자명].github.io/[저장소명]/` 주소로 접속됩니다.
 4. **커스텀 도메인을 쓰신다면** 5개 HTML 파일 안의 `<link rel="canonical">`, `<meta property="og:...">`와 `sitemap.xml`, `robots.txt`의 `treehouse-property-care.vercel.app`를 실제 도메인으로 바꿔주세요.
@@ -67,4 +64,4 @@ assets/
 
 - **컬러**: Deep Forest Green `#1C2C20` · Sage `#7C8C74` · Warm White `#F8F6F1` · Soft Beige `#E8E1D5` · Charcoal `#252525`
 - **폰트**: 헤드라인 Cormorant Garamond · 본문 Manrope (한국어/중국어는 Noto Sans KR/SC로 자동 대체)
-- 모든 값은 `css/style.css` 상단 `:root` 변수로 모아뒀습니다.
+- 모든 값은 `style.css` 상단 `:root` 변수로 모아뒀습니다.
