@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Update the domain below once deployed. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://treehouse-property-care.vercel.app/</loc>
-    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://treehouse-property-care.vercel.app/cleaning.html</loc>
-    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://treehouse-property-care.vercel.app/outdoor-care.html</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://treehouse-property-care.vercel.app/deep-cleaning.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://treehouse-property-care.vercel.app/property-maintenance.html</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://treehouse-property-care.vercel.app/airbnb-cleaning.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://treehouse-property-care.vercel.app/commercial.html</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://treehouse-property-care.vercel.app/commercial-cleaning.html</loc>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://treehouse-property-care.vercel.app/about.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://treehouse-property-care.vercel.app/contact.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://treehouse-property-care.vercel.app/privacy.html</loc>
+    <priority>0.3</priority>
   </url>
 </urlset>
