@@ -60,6 +60,11 @@
       .then(function(r){ return r.json().then(function(j){ return {ok:r.ok,j:j}; }); })
       .then(function(x){
         if(x.ok && (x.j.success===true||x.j.success==='true')){
+          try{ // best-effort copy into the staff portal queue; never blocks the customer
+            var g=function(k){return (data[k]||'').toString();};
+            fetch('https://treehouse-staff.vercel.app/api/quote-requests',{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+              body:JSON.stringify({name:g('Name'),email:g('Email'),phone:g('Phone'),address:g('Property address'),property_type:g('Property type'),service_needed:g('Service required'),bedrooms:g('Bedrooms'),bathrooms:g('Bathrooms'),frequency:g('Cleaning frequency'),preferred_date:g('Preferred date'),message:g('Message')})}).catch(function(){});
+          }catch(_){}
           form.style.display='none'; success.classList.add('show'); success.setAttribute('tabindex','-1'); success.focus();
         } else { fail(); }
       }).catch(fail);

@@ -44,7 +44,7 @@ section{padding:92px 0}
 header.site{position:sticky;top:0;z-index:100;background:rgba(248,246,241,.96);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img{height:44px;width:auto}
+.brand img{height:52px;width:auto}
 .brand-text{display:flex;flex-direction:column;line-height:1}
 .brand-text b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;letter-spacing:.16em;color:var(--forest)}
 .brand-text span{font-size:10px;letter-spacing:.42em;color:var(--sage-dim);font-weight:700;margin-top:5px}
@@ -229,7 +229,7 @@ footer a:hover{color:#fff;text-decoration:underline}
   .wrap{padding:0 20px}
   body{font-size:16px}
   .nav{height:68px}.mobile-nav{inset:68px 0 0 0}
-  .brand img{height:38px}.brand-text b{font-size:20px}
+  .brand img{height:44px}
   .values,.steps,.trust-grid,.checks,.form-row,.form-row.three,.two-img{grid-template-columns:1fr}
   .form-row{gap:16px}
   .quote-form{padding:24px 20px}
@@ -240,3 +240,11 @@ footer a:hover{color:#fff;text-decoration:underline}
   .faq summary{font-size:1.25rem}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mosaic img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;display:block}
+.mosaic-2{grid-template-columns:1fr}
+.why-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.why-photos img{width:100%;height:280px;object-position:center 30%;object-fit:cover;border-radius:4px;display:block}
+@media(max-width:600px){.why-photos{grid-template-columns:1fr}.why-photos img{height:220px}}
+.mosaic-2 img{height:auto;aspect-ratio:auto}
